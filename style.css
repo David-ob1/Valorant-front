@@ -1,0 +1,32 @@
+:root{
+    --bg-color:#111823;
+}
+
+.layout{
+    /* background:maroon; */
+    min-height: 100vh;
+    display: flex;
+   flex-direction: column;
+}
+
+
+.navbar-nav{
+    margin: 0!important;
+    width: 100%;
+    justify-content:center;
+}
+.navbar__logo{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+
+.nav-item a{
+    text-align: center;
+}
+
+.banner{
+    height: 350px;
+    object-position: 20% 15%;
+    object-fit: cover;
+}
