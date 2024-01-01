@@ -11,16 +11,25 @@
 */
 
 const contenedor = document.getElementById("contenedor-cards")
+const sentinels = filtrarPorRol(agentes.data , "Sentinel")
+const templateSentinel = generarTemplate(sentinels)
+imprimirlasCards(templateSentinel,contenedor)
 
 function filtrarPorRol(listaAgentes, rol){
     let agentesFiltrados = []
-    console.log(listaAgentes.length)
+    
     for (agente of listaAgentes){
-        console.log(agente.displayName)
+        if(agente.role && agente.role.displayName == rol){
+            agentesFiltrados.push(agente)
+
+        }
+
+
     }
     return agentesFiltrados
 }
-filtrarPorRol(agentes.data)
+ 
+
 
 function createCard(agente){
 
@@ -34,4 +43,28 @@ function createCard(agente){
             </div>
         </article>
     `
+}
+
+function generarTemplate(listaAgentes){
+    let template = ""
+
+    // for(let i=0; i <= listaAgentes.length - 1 ; i++){
+    //    template += createCard(listaAgentes[i])
+
+    // }
+
+    for(let i = listaAgentes.length - 1 ; i >= 0 ; i--){
+        template += createCard(listaAgentes[i])
+ 
+     }
+    // for( agente of listaAgentes){
+    //     template += createCard(agente)
+
+    // }
+
+    return template
+}
+
+function imprimirlasCards(template,contenedor){
+    contenedor.innerHTML = template
 }
